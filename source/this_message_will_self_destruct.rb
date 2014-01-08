@@ -9,6 +9,8 @@ end
 
 def destroy_message!(string)
   #TODO: remove the message from string destructively!
+  string.gsub!(string, destroy_message(string))
+  nil
 end
 
 # Driver code...
@@ -21,10 +23,11 @@ string = "this has no message"
 original_string = string.dup
 puts destroy_message(string) == string
 puts string == original_string # we shouldn't modify the string passed to destroy_message
-
+#puts "right here"
 string = "this message will self-destruct: you can't hug every cat"
 original_string = string.dup
 destroy_message!(string)
+#puts string
 puts string == "this message will self-destruct:"
 puts string != original_string
 
