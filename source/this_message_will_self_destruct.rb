@@ -8,7 +8,11 @@ def destroy_message(string)
 end
 
 def destroy_message!(string)
-  #TODO: remove the message from string destructively!
+  if string.include?(":")
+    /(?<destroyed_string>.*:)/ =~ string
+    string.replace(destroyed_string)
+  end
+  string
 end
 
 # Driver code...
