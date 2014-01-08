@@ -1,12 +1,14 @@
 def destroy_message(string)
-  #TODO: return the part a string without the message
+  return string unless string.include?(":")
+  string.split(":").first + ":"
 end
 
 def destroy_message!(string)
-  #TODO: remove the message from string destructively!
+   string.include?(":") ? string.replace(string.split(":").first + ":") : nil
 end
 
-# Driver code... 
+# Driver code..
+#destroy_message("This message will destruct: blah blah blah")
 string = "this message will self-destruct: you can't hug every cat"
 original_string = string.dup
 puts destroy_message(string) == "this message will self-destruct:"
@@ -14,7 +16,7 @@ puts string == original_string # we shouldn't modify the string passed to destro
 
 string = "this has no message"
 original_string = string.dup
-puts destroy_message(string) == string
+destroy_message(string) == string
 puts string == original_string # we shouldn't modify the string passed to destroy_message
 
 string = "this message will self-destruct: you can't hug every cat"
