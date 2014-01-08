@@ -1,12 +1,28 @@
 def destroy_message(string)
-  #TODO: return the part a string without the message
+  # find the index of the colon
+  # if it doesn't exist, don't do anything (just return string)
+  #   if it does exist, return a substring
+  #     to calc substring, slice 0 to index
+  index = string.index(":")
+  if index.nil?
+    string
+  else
+    string[0..index]
+  end
 end
 
 def destroy_message!(string)
-  #TODO: remove the message from string destructively!
+  index = string.index(":")
+  if index.nil?
+    string
+  else
+    string.slice!((index+1)..string.length-1)
+    string
+  end
+  nil
 end
 
-# Driver code... 
+# Driver code...
 string = "this message will self-destruct: you can't hug every cat"
 original_string = string.dup
 puts destroy_message(string) == "this message will self-destruct:"
