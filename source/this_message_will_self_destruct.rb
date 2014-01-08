@@ -1,12 +1,13 @@
 def destroy_message(string)
-  #TODO: return the part a string without the message
+  string.gsub(/\:.*/,":")
+
 end
 
 def destroy_message!(string)
-  #TODO: remove the message from string destructively!
+  string.gsub!(/\:.*/,":")
 end
 
-# Driver code... 
+# Driver code...
 string = "this message will self-destruct: you can't hug every cat"
 original_string = string.dup
 puts destroy_message(string) == "this message will self-destruct:"
