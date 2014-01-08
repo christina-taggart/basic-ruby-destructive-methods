@@ -3,7 +3,7 @@ def destroy_message(string)
 end
 
 def destroy_message!(string)
-  #TODO: remove the message from string destructively!
+  string.gsub!(/(.*:).*/,'\1')
 end
 
 # Driver code...
